@@ -1,0 +1,34 @@
+<!--?Pour afficher la liste des produits récuperer depuis l'API-->
+<div class="card-container">
+  <mat-card class="example-card" *ngFor="let product of products">
+    <mat-card-header>
+      <div>
+        <div class="header">
+          <mat-card-title>{{ product.title }}</mat-card-title>
+          <mat-card-subtitle>{{ product.price }}€</mat-card-subtitle>
+        </div>
+        <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+      </div>
+    </mat-card-header>
+    <img mat-card-image [src]="product.images[0]" alt="{{ product.title }}" />
+    <mat-card-content>
+      <p>
+        {{ product.description }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <div class="quantity-controls">
+        <mat-icon class="circle-icon" (click)="decrementProduct(product)"
+          >remove</mat-icon
+        >
+        <input matInput type="number" [value]="product.quantity" readonly />
+        <mat-icon class="circle-icon" (click)="incrementProduct(product)"
+          >add</mat-icon
+        >
+      </div>
+    </mat-card-actions>
+    <div class="ajoutPanier">
+      <button mat-button (click)="addToCart(product)">Ajouter au panier</button>
+    </div>
+  </mat-card>
+</div>

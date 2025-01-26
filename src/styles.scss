@@ -1,0 +1,13 @@
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+
+// Les styles par défaut de l'app
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: Arial;
+}
+
+html {
+    scroll-behavior: smooth;
+}

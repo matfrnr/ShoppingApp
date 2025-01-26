@@ -1,0 +1,24 @@
+<!--?L'affichage de la popup du panier-->
+<div class="cart-container">
+  <h1 style="text-align: center">Panier</h1>
+  <!--?Boucle pour récuperer les produits contenu dans le panier et les afficher-->
+  <div *ngFor="let item of cartItems" class="cart-item">
+    <!--?Les informations du produit-->
+    <img [src]="item.images[0]" alt="{{ item.title }}" />
+    <div class="cart-item-details">
+      <p class="cart-item-title">{{ item.title }}</p>
+      <p class="cart-item-price">{{ item.quantity }} x {{ item.price }}€</p>
+    </div>
+    <!--?La croix du panier-->
+    <mat-icon class="cart-item-remove" (click)="deleteProduct(item.id)"
+      >close</mat-icon
+    >
+  </div>
+  <!--!Sinon il y a jspas combien de chiffres après la virgule-->
+  <p class="cart-total">Prix total : {{ totalPrice.toFixed(2) }}€</p>
+  <div class="cart-actions">
+    <!--?Les boutons du panier-->
+    <button mat-button (click)="closeDialog()" class="btn1">Fermer</button>
+    <button mat-button (click)="pay()" class="btn2">Payer</button>
+  </div>
+</div>

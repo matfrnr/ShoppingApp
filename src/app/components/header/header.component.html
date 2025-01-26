@@ -1,0 +1,14 @@
+<!--?L'affichage du header-->
+<mat-toolbar>
+  <span>My cart</span>
+  <!--?L'icone du panier avec fonction pour ouvrir-->
+  <mat-icon
+    [matBadge]="cartItemCount"
+    matBadgeOverlap="false"
+    matBadgeColor="warn"
+    class="panier"
+    color="warn"
+    aria-hidden="false"
+    (click)="openCartDialog()"
+  >shopping_cart</mat-icon>
+</mat-toolbar>
